@@ -1,5 +1,6 @@
 package com.example.praktikum4
 
+import android.R.attr.text
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -55,7 +56,7 @@ fun FormatDataDiri(modifier: Modifier){
                 Row (modifier = Modifier.selectable(
                     selected = textJK == item,
                     onClick =  {textJK == item}
-                ), verticalAlignment = Alignment.CenterHorizontally){
+                ), verticalAlignment = Alignment.CenterVertically){
                     RadioButton(
                         selected = textJK == item,
                         onClick = {
@@ -65,6 +66,16 @@ fun FormatDataDiri(modifier: Modifier){
                 }
             }
         }
+
+        OutlinedTextField(
+            value = textAlamat,
+            singleLine = true,
+            modifier = Modifier.width(250.dp),
+            label = { Text(text = "Alamat Lengkap") },
+            onValueChange = {
+                textAlamat = it
+            }
+        )
     }
 
 }
