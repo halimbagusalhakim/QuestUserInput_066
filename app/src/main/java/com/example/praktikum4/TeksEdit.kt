@@ -2,8 +2,10 @@ package com.example.praktikum4
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.icons.materialIcon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -24,7 +26,7 @@ fun FormatDataDiri(modifier: Modifier){
     //variabel-vaiabel untuk mengingat nilai masukan dari keyboard
     var textNama by remember {mutableStateOf("")}
     var textAlamat by remember {mutableStateOf("")}
-    var textJk by remember {mutableStateOf("")}
+    var textJK by remember {mutableStateOf("")}
 
     //variabel-variabel untuk menyimpan data yang diperoleh dari komponen UI
     var nama by remember {mutableStateOf("")}
@@ -47,7 +49,14 @@ fun FormatDataDiri(modifier: Modifier){
             }
 
         )
+        Row {
+            gender.forEach { item ->
+                Row (modifier = Modifier.selectable(
+                    selected = textJK == item,
+                    onClick =  {textJK == item}
+                ), verticalAlignment = Alignment.CenterHorizontally)
+            }
+        }
     }
-        )
 
 }
